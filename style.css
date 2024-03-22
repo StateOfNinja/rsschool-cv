@@ -1,0 +1,44 @@
+p {
+  border: 1px gray solid;
+}
+.name {
+  color: white;
+  text-shadow: 1px 1px 1px;
+}
+.name:hover {
+  text-shadow: none;
+}
+.info {
+  color: white;
+  text-shadow: 1px 1px 1px;
+}
+.info:hover {
+  text-shadow: none;
+}
+ul {
+  color: white;
+}
+ul:hover {
+  text-shadow: 0.5px 0.5px;
+}
+.skills {
+  color: white;
+  text-shadow: 1px 1px 1px;
+}
+.skills:hover {
+  text-shadow: none;
+}
+body {
+  background-color: beige;
+}
+#myvideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.box {
+  position: fixed;
+  width: 20%;
+}
