@@ -11,6 +11,10 @@
   overflow: hidden;
   margin: 0 auto;
 }
+.header__burger {
+  display: none;
+}
+
 .header {
   background-color: #0c0c0e;
   height: 90px;
@@ -43,9 +47,107 @@
 }
 .header__logo {
   margin-right: 20px;
+  z-index: 3;
 }
 .menu__container {
   display: flex;
+}
+.title {
+  position: relative;
+  font-weight: normal;
+  line-height: 40px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-family: "Forum";
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 60px;
+  & span {
+    left: 48%;
+    position: absolute;
+    display: block;
+    background-color: #0c0c0e;
+    width: 50px;
+    height: 1px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 1025px) {
+  .wrapper {
+    max-width: 1025px;
+  }
+  .header__burger {
+    display: block;
+    position: relative;
+    width: 45px;
+    height: 20px;
+    z-index: 0;
+    margin: -5px 20px 0px 40px;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .header__burger::before,
+  .header__burger::after {
+    left: 0;
+    position: absolute;
+    background-color: #fff;
+    width: 45px;
+    height: 2px;
+    content: "";
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger::before {
+    top: 0;
+  }
+  .header__burger::after {
+    bottom: 0;
+  }
+
+  .header__burger span {
+    position: absolute;
+    left: 0;
+    width: 45px;
+    height: 2px;
+    background-color: #fff;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+
+  .header__burger--active::before {
+    transform: rotate(50deg);
+    top: 9px;
+  }
+  .header__burger--active::after {
+    transform: rotate(-50deg);
+    bottom: 9px;
+  }
+  .header__burger--active span {
+    transform: scale(0);
+  }
+  .header__menu {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background-color: black;
+    padding: 100px;
+    transform: left 0.3s ease 0s;
+    z-index: 1;
+    overflow: auto;
+  }
+  .header__menu--active {
+    right: 0;
+  }
+  .menu__list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu__link {
+    margin: 0 0 30px 0;
+  }
+  .menu__container {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 }
 .main {
   margin: 0 auto;
@@ -73,34 +175,23 @@
   background-color: #0c0c0e;
 }
 .about {
+  margin-bottom: 40px;
 }
-.about__title {
-  position: relative;
-  font-weight: normal;
-  line-height: 40px;
-  font-size: 40px;
-  letter-spacing: 2px;
-  font-family: "Forum";
-  text-align: center;
-  padding-top: 20px;
-  & span {
-    left: 695px;
-    position: absolute;
-    display: block;
-    background-color: #0c0c0e;
-    width: 50px;
-    height: 1px;
-  }
-}
+
 .about__text {
   line-height: 40px;
   font-size: 20px;
   font-family: "inter";
-  padding-top: 40px;
+
   text-align: center;
+  padding-bottom: 20px;
 }
-.about__img {
-  padding-top: 20px;
+.slider__items {
+  display: flex;
+  align-items: center;
+}
+.slider__item {
+  margin: 20px 13px 0;
 }
 .about__img :first-child {
   padding-left: 20px;
@@ -109,7 +200,7 @@
 .about__img :last-child {
   padding-left: 20px;
 }
-.slider {
+.slider__controls {
   display: flex;
   padding-top: 40px;
   justify-content: center;
@@ -122,41 +213,80 @@
   display: inline-block;
   margin-right: 10px;
 }
+.circle--tel {
+  display: none;
+}
+.slider__switches {
+  display: none;
+}
+
 .circle--active {
   background-color: #bb945f;
 }
-.Favorites__title {
-  position: relative;
-  font-weight: normal;
-  line-height: 40px;
-  font-size: 40px;
-  letter-spacing: 2px;
-  font-family: "Forum";
-  text-align: center;
-  padding-top: 60px;
-  & span {
+@media (max-width: 1025px) {
+  .title {
+    & span {
+      display: block;
+      position: absolute;
+      left: 47%;
+      width: 50px;
+      height: 1px;
+    }
+  }
+  .slider__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slider__item {
+    margin: 0 13px;
+    display: none;
+    &:first-child {
+      display: block;
+    }
+  }
+  .slider__row {
+    .slider__switches {
+      display: block;
+    }
+    position: relative;
+    .prev,
+    .next {
+      width: 8px;
+      height: 11px;
+      position: absolute;
+      top: 48.5%;
+    }
+    .prev {
+      left: 67px;
+    }
+    .next {
+      right: 67px;
+    }
+  }
+  .circle--tel {
     display: block;
-    left: 695px;
-    position: absolute;
-    background-color: #0c0c0e;
-    width: 50px;
-    height: 1px;
+  }
+  .about {
+    margin-bottom: 30px;
   }
 }
+
 .Favorites__text {
   padding-left: 20px;
-  padding-top: 40px;
   font-family: "inter";
   font-size: 20px;
   line-height: 24.2px;
   font-weight: 700;
 }
 .gallery__seasons {
+  position: sticky;
+  top: 0;
   padding-top: 40px;
   padding-left: 20px;
 }
 .gallery__season {
-  margin-right: 110px;
+  margin-right: 90px;
   width: 700px;
   font-family: "inter";
   font-size: 20px;
@@ -166,13 +296,14 @@
 .gallery__season--active {
   font-weight: 700;
 }
-.Favorites__items {
+
+.favorites__items {
   display: flex;
   flex-wrap: wrap;
   padding-top: 40px;
   margin: 0 -110px;
 }
-.Favorites__item {
+.favorites__item {
   flex: 1 0 60%;
   max-width: 550px;
   min-height: 555px;
@@ -189,6 +320,7 @@
   line-height: 40px;
   letter-spacing: 2px;
   font-weight: 400;
+
   position: relative;
   & span {
     display: block;
@@ -233,26 +365,20 @@
   margin-top: 40px;
   font-size: 10px;
 }
-.coffee__title {
-  position: relative;
-  font-weight: normal;
-  line-height: 40px;
-  font-size: 40px;
-  letter-spacing: 2px;
-  font-family: "Forum";
-  text-align: center;
-  padding-top: 60px;
-  & span {
-    display: block;
-    left: 695px;
-    position: absolute;
-    background-color: #0c0c0e;
-    width: 50px;
-    height: 1px;
+@media (max-width: 1250px) {
+  .favorites__items {
+    margin: 0 auto;
+  }
+  .gallery__seasons {
+    position: sticky;
+    top: 0;
+    height: 100px;
   }
 }
+.coffee__shop {
+  padding: 0 20px;
+}
 .coffee__text {
-  padding: 40px 20px;
   font-family: "inter";
   font-weight: 400;
   font-size: 20px;
@@ -260,6 +386,7 @@
   letter-spacing: 2px;
   text-align: center;
 }
+
 .menu__title {
   position: relative;
   padding-bottom: 40px;
@@ -285,9 +412,6 @@
   background-color: #bb945f;
   margin: 0 60px;
 }
-
-.price-item__price {
-}
 .price-menu__items {
   display: flex;
   flex-direction: column;
@@ -308,36 +432,24 @@
   text-align: right;
   width: 438px;
 }
-.title__contacts {
-  margin: 0px 0 60px 0;
-  position: relative;
-  font-weight: normal;
-  line-height: 40px;
-  font-size: 40px;
-  letter-spacing: 2px;
-  font-family: "Forum";
-  text-align: center;
-  & span {
-    display: block;
-    left: 695px;
-    position: absolute;
-    background-color: #0c0c0e;
-    width: 50px;
-    height: 1px;
-    margin-top: 20px;
+@media (max-width: 1025px) {
+  .menu {
+    flex-direction: column;
+  }
+  .coffeeShop__food {
+    align-self: flex-end;
   }
 }
+
 .Our__Contacts {
   margin-bottom: 40px;
+  padding: 0 20px;
 }
 .info__row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
 }
-.info__img {
-  height: 414px;
-}
+
 .info__contacts {
   margin: 0 20px;
 }
@@ -376,29 +488,21 @@
 .inquiries__text span {
   font-weight: 700;
 }
-.card__title {
-  margin: 0 0 60px 0;
-  position: relative;
-  font-weight: normal;
-  line-height: 40px;
-  font-size: 40px;
-  letter-spacing: 2px;
-  font-family: "Forum";
-  text-align: center;
-  & span {
-    display: block;
-    left: 695px;
-    position: absolute;
-    background-color: #0c0c0e;
-    width: 50px;
-    height: 1px;
-    margin-top: 20px;
+@media (max-width: 1025px) {
+  .info__row {
+    flex-direction: column;
+    justify-content: center;
   }
+  .text__info {
+    margin-bottom: 100px;
+  }
+}
+.LibraryCard {
+  margin-bottom: 40px;
 }
 .card__row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
 }
 
 .card__info {
@@ -411,7 +515,6 @@
   font-size: 30px;
   line-height: 36px;
   letter-spacing: 2%;
-  padding-top: 40px;
 }
 .card__info-body {
   width: 600px;
@@ -493,7 +596,7 @@
   font-family: "forum";
   font-weight: 400;
   font-size: 30px;
-  text-align: right;
+
   line-height: 33px;
   margin-bottom: 35px;
 }
@@ -518,6 +621,17 @@
 }
 .card-reader__log {
   margin-right: 0;
+}
+@media (max-width: 1025px) {
+  .card__row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card__reader {
+    text-align: center;
+    width: 550px;
+  }
 }
 .footer {
   background-color: #0c0c0e;
@@ -591,5 +705,5 @@
   font-family: "inter";
   font-weight: 400;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 20px;
 }

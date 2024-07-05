@@ -11,7 +11,11 @@
       <header class="header">
         <div class="container__head">
           <a href="#" class="title__head">Brooklyn Public Library</a>
+
           <div class="menu__container">
+            <div class="header__burger">
+              <span></span>
+            </div>
             <nav class="header__menu">
               <ul class="menu__list">
                 <li class="menu__link">
@@ -48,26 +52,69 @@
         </section>
         <section class="about">
           <div class="about__content">
-            <h2 class="about__title">About <span></span></h2>
+            <h2 class="about__title title">About <span></span></h2>
             <div class="about__text">
               The Brooklyn Library is a free workspace, a large number of books
               and a cozy coffee shop inside
             </div>
-            <div class="about__img">
-              <img src="/img/slider0.jpg" alt="#" />
-              <img src="/img/slider1.jpg" alt="#" />
-              <img src="/img/slider2.jpg" alt="#" />
-            </div>
-            <div class="slider">
-              <span class="circle circle--active"></span>
-              <span class="circle"></span>
-              <span class="circle"></span>
+            <div class="about__slider">
+              <div class="slider__row">
+                <div class="slider__switches">
+                  <img
+                    class="next"
+                    src="./img/Vector1.svg"
+                    onclick="plusSlides(1)"
+                    alt=""
+                  />
+                  <img
+                    class="prev"
+                    src="./img/Vector0.svg"
+                    onclick="plusSlides(-1)"
+                    alt=""
+                  />
+                </div>
+                <div class="slider__items">
+                  <img class="slider__item" src="/img/slider0.jpg" alt="#" />
+                  <img class="slider__item" src="/img/slider1.jpg" alt="#" />
+                  <img class="slider__item" src="/img/slider2.jpg" alt="#" />
+                  <img class="slider__item" src="/img/slider3.jpg" alt="#" />
+                  <img class="slider__item" src="/img/slider4.jpg" alt="#" />
+                </div>
+                <div class="slider__controls">
+                  <span
+                    class="circle circle--active"
+                    onclick="currentSlide(1)"
+                    data-id="0"
+                  ></span>
+                  <span
+                    class="circle"
+                    onclick="currentSlide(2)"
+                    data-id="1"
+                  ></span>
+                  <span
+                    class="circle"
+                    onclick="currentSlide(3)"
+                    data-id="2"
+                  ></span>
+                  <span
+                    class="circle circle--tel"
+                    onclick="currentSlide(4)"
+                    data-id="3"
+                  ></span>
+                  <span
+                    class="circle circle--tel"
+                    onclick="currentSlide(5)"
+                    data-id="4"
+                  ></span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         <section class="Favorites">
           <div class="Favorites__content">
-            <h2 class="Favorites__title">Favorites <span></span></h2>
+            <h2 class="Favorites__title title">Favorites <span></span></h2>
+
             <div class="Favorites__text">Pick favorites of season</div>
             <div class="gallery__seasons">
               <label class="gallery__season gallery__season--active">
@@ -93,8 +140,9 @@
                 Autumn
               </label>
             </div>
-            <div class="Favorites__items">
-              <div class="Favorites__item">
+
+            <div class="favorites__items">
+              <!-- <div class="favorites__item">
                 <div class="item__title">Staff Picks <span></span></div>
                 <div class="item__subtitle">
                   <p>The Book Eaters</p>
@@ -112,7 +160,7 @@
                   <img src="./img/winterBook0.jpg" alt="" />
                 </div>
               </div>
-              <div class="Favorites__item">
+              <div class="favorites__item">
                 <div class="item__title">Staff Picks <span></span></div>
                 <div class="item__subtitle">
                   <p>Cackle</p>
@@ -130,7 +178,7 @@
                   <img src="./img/winterBook1.jpg" alt="" />
                 </div>
               </div>
-              <div class="Favorites__item">
+              <div class="favorites__item">
                 <div class="item__title">Staff Picks <span></span></div>
                 <div class="item__subtitle">
                   <p>Dante: Poet of the Secular World</p>
@@ -148,7 +196,7 @@
                   <img src="./img/winterBook2.jpg" alt="" />
                 </div>
               </div>
-              <div class="Favorites__item">
+              <div class="favorites__item">
                 <div class="item__title">Staff Picks <span></span></div>
                 <div class="item__subtitle">
                   <p>The Last Queen</p>
@@ -163,12 +211,12 @@
                 <div class="item__book">
                   <img src="./img/winterBook3.jpg" alt="" />
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>
-        <section class="coffee shop">
-          <div class="coffee__title">Coffee title <span></span></div>
+        <section class="coffee__shop">
+          <div class="coffee__title title">Coffee title <span></span></div>
           <div class="coffee__text">
             In our library, we have of cozy coffee shop, welcoming in customers
             with frothy cappuccinos and friendly conversation. you can get a
@@ -247,7 +295,7 @@
           </div>
         </section>
         <section class="Our__Contacts">
-          <div class="title__contacts">Our Contacts <span></span></div>
+          <div class="title__contacts title">Our Contacts <span></span></div>
           <div class="info__row">
             <div class="info__contacts">
               <div class="text__info">
@@ -266,9 +314,11 @@
             <img class="info__img" src="./img/map.jpg" alt="#" />
           </div>
         </section>
-        <section class="LibraryCards">
+        <section class="LibraryCard">
           <div class="card__content">
-            <div class="card__title">Digital Library Cards <span></span></div>
+            <div class="card__title title">
+              Digital Library Cards <span></span>
+            </div>
             <div class="card__row">
               <div class="card__info">
                 <div class="card__info-title">Find your Library card</div>
@@ -370,5 +420,6 @@
         </div>
       </footer>
     </div>
+    <script type="module" src="./js/script.js"></script>
   </body>
 </html>
